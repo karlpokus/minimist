@@ -1,4 +1,8 @@
-module.exports = function (args, opts) {
+window.parseCli = function(args, opts) {
+    
+    // split str by space to array
+    args = args.split(" ");
+    
     if (!opts) opts = {};
     
     var flags = { bools : {}, strings : {}, unknownFn: null };
@@ -216,21 +220,20 @@ module.exports = function (args, opts) {
     }
 
     return argv;
+    
+    function hasKey (obj, keys) {
+        var o = obj;
+        keys.slice(0,-1).forEach(function (key) {
+            o = (o[key] || {});
+        });
+    
+        var key = keys[keys.length - 1];
+        return key in o;
+    }
+    
+    function isNumber (x) {
+        if (typeof x === 'number') return true;
+        if (/^0x[0-9a-f]+$/i.test(x)) return true;
+        return /^[-+]?(?:\d+(?:\.\d*)?|\.\d+)(e[-+]?\d+)?$/.test(x);
+    }
 };
-
-function hasKey (obj, keys) {
-    var o = obj;
-    keys.slice(0,-1).forEach(function (key) {
-        o = (o[key] || {});
-    });
-
-    var key = keys[keys.length - 1];
-    return key in o;
-}
-
-function isNumber (x) {
-    if (typeof x === 'number') return true;
-    if (/^0x[0-9a-f]+$/i.test(x)) return true;
-    return /^[-+]?(?:\d+(?:\.\d*)?|\.\d+)(e[-+]?\d+)?$/.test(x);
-}
-
