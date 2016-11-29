@@ -1,25 +1,15 @@
 {
   "name": "minimist-browser",
   "version": "1.2.0",
-  "description": "parse argument options",
+  "description": "a fork of minimist",
   "main": "minimist-browser.js",
   "devDependencies": {},
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/substack/minimist.git"
+    "url": "git://github.com/karlpokus/minimist-browser.git"
   },
-  "homepage": "https://github.com/substack/minimist",
-  "keywords": [
-    "argv",
-    "getopt",
-    "parser",
-    "optimist"
-  ],
-  "author": {
-    "name": "James Halliday",
-    "email": "mail@substack.net",
-    "url": "http://substack.net"
-  },
+  "homepage": "https://github.com/karlpokus/minimist-browser",
+  "author": "Karl Pokus <karl.pokus@gmail.com> (https://github.com/karlpokus)",
   "license": "MIT"
 }
